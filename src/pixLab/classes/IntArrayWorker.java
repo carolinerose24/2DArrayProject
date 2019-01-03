@@ -16,12 +16,12 @@ public class IntArrayWorker
    * Method to return the total 
    * @return the total of the values in the array
    */
-  public int getTotal()
+  public int getTotal() //both row major transversals 
   {
     int total = 0;
-    for (int row = 0; row < matrix.length; row++)
+    for (int row = 0; row < matrix.length; row++) //count rows by matrix length (row major)
     {
-      for (int col = 0; col < matrix[0].length; col++)
+      for (int col = 0; col < matrix[0].length; col++) //count columns in rows (column major)
       {
         total = total + matrix[row][col];
       }
@@ -35,12 +35,12 @@ public class IntArrayWorker
    */
   public int getTotalNested()
   {
-    int total = 0;
-    for (int[] rowArray : matrix)
+    int total = 0; //always array, then item -> must have both separated
+    for (int[] rowArray : matrix) //for row in matrix ->an array of type matrix
     {
-      for (int item : rowArray)
+      for (int item : rowArray)   //for item in row (same thing as columns?) ->get value out of the row
       {
-        total = total + item;
+        total = total + item; //for each^^don't need to know the index->can only accumulate not change things
       }
     }
     return total;
@@ -100,4 +100,22 @@ public class IntArrayWorker
     }
   }
  
+  public int getCount(int numberToFind) //count how many of a number are in a column
+  {
+	  int count = 0;
+	  for (int[] row : matrix)
+	  {
+		  for (int item : row)
+		  {
+			  if (item == numberToFind) //int is a primitive so it has no .______ methods
+			  {
+				  count++;
+			  }
+		  }
+	  }
+	  return count;
+  }
+  
+  
+  
 }

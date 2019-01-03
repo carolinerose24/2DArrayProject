@@ -12,8 +12,8 @@ import java.awt.image.BufferedImage;
  * 
  * @author Barb Ericson ericson@cc.gatech.edu
  */
-public interface DigitalPicture 
-{
+public interface DigitalPicture //interface->java type that holds method calls ->but no actual code/implementation
+{											//they promise to have these methods (all must be public)
   public String getFileName(); // get the file name that the picture came from
   public String getTitle(); // get the title of the picture
   public void setTitle(String title); // set the title of the picture

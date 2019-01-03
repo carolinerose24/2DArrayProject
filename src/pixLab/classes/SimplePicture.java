@@ -16,7 +16,7 @@ import java.awt.geom.*;
  * @author Barb Ericson ericson@cc.gatech.edu
  */
 public class SimplePicture implements DigitalPicture
-{
+{			//SP promises to do all the methods inside DP (to add code for all the methods in the interface)
   
   /////////////////////// Fields /////////////////////////
   

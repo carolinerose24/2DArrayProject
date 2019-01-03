@@ -5,7 +5,7 @@ public class IntArrayWorkerTester
   public static void testSetMatrix()
   {
     IntArrayWorker worker = new IntArrayWorker();
-    int[][] nums = {{1, 1, 1} ,{2,2,2}};
+    int[][] nums = {{1, 1, 1} ,{2,2,2}}; //2D arrays do not print on their own->need a print method
     worker.setMatrix(nums);
     System.out.println("This should have all 1's in first row and all 2's in second");
     worker.print();
@@ -23,15 +23,15 @@ public class IntArrayWorkerTester
   }
   
   /** Method to test getCount*/
-//  public static void testGetCount()
-//  {
-//    IntArrayWorker worker = new IntArrayWorker();
-//    int[][] nums = new int[3][4];
-//    worker.setMatrix(nums);
-//    worker.fillPattern1();
-//    int count = worker.getCount(1);
-//    System.out.println("Count should be 6 and count is " + count);
-//  }
+  public static void testGetCount()
+  {
+    IntArrayWorker worker = new IntArrayWorker();
+    int[][] nums = new int[3][4];
+    worker.setMatrix(nums);
+    worker.fillPattern1();
+    int count = worker.getCount(1);
+    System.out.println("Count should be 6 and count is " + count);
+  }
   
   /** Method to test getTotal */
   public static void testGetTotal()
