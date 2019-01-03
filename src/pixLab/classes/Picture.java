@@ -87,6 +87,18 @@ public class Picture extends SimplePicture
   }
   
   
+  public void banana()
+  {
+	  Pixel[][] pixels = this.getPixels2D(); //set it into thirds? each one has one color gone? but it is not an int?
+	    for (Pixel[] rowArray : pixels)
+	    {
+	      for (Pixel pixelObj : rowArray)
+	      {
+	        pixelObj.setBlue(0);
+	      }
+	    }
+  }
+  
   public void zeroRed()
   {
 	  Pixel [] [] pixels = this.getPixels2D();
