@@ -117,5 +117,53 @@ public class IntArrayWorker
   }
   
   
+  public int getLargest()
+  {
+	  int largest = Integer.MIN_VALUE;
+	  			//int Largest = -100000000;//cannot assume zero is the smallest->use a large negative number
+	  
+	  for (int[] row : matrix)
+	  {
+		  for (int item: row)
+		  {
+			  
+			  if (item > largest)
+			  {
+				  largest = item;
+			  }
+		  }
+	  }
+	  
+	  return largest;
+  }
+  
+  
+  
+  public int getColTotal(int colNum)
+  {
+	  int a = 0;
+	
+	  
+	  for (int row = 0; row < matrix.length; row++)
+	    {
+	      for (int col = 0; col < matrix[0].length; 
+	           col++)
+	      {
+	    	  colNum = col;
+	    	  
+	    	  
+	    	  
+	        if (row < col)
+	          matrix[row][col] = 1;
+	        else if (row == col)
+	          matrix[row][col] = 2;
+	        else
+	          matrix[row][col] = 3;
+	      }
+	    }
+	  
+	  return a; 
+  }
+  
   
 }
