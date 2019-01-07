@@ -141,29 +141,20 @@ public class IntArrayWorker
   
   public int getColTotal(int colNum)
   {
-	  int a = 0;
-	
+
+	  int total = 0; 
 	  
-	  for (int row = 0; row < matrix.length; row++)
+	  for (int row = 0; row < matrix.length; row++) //can switch columns and rows for loops-> it is no different
 	    {
 	      for (int col = 0; col < matrix[0].length; 
 	           col++)
 	      {
-	    	  colNum = col;
-	    	  
-	    	  
-	    	  
-	        if (row < col)
-	          matrix[row][col] = 1;
-	        else if (row == col)
-	          matrix[row][col] = 2;
-	        else
-	          matrix[row][col] = 3;
+	        if (col == colNum)
+	        {
+	        	total+= matrix[row][colNum];
+	        }
 	      }
 	    }
-	  
-	  return a; 
+	  return total; 
   }
-  
-  
 }
