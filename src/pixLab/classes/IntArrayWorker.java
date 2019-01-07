@@ -119,7 +119,7 @@ public class IntArrayWorker
   
   public int getLargest()
   {
-	  int largest = Integer.MIN_VALUE;
+	  int largest = Integer.MIN_VALUE; //means -2billion ish
 	  			//int Largest = -100000000;//cannot assume zero is the smallest->use a large negative number
 	  
 	  for (int[] row : matrix)
@@ -139,21 +139,21 @@ public class IntArrayWorker
   
   
   
-  public int getColTotal(int colNum)
+  public int getColTotal(int colNum)//if given a parameter-> use it in the code
   {
 
 	  int total = 0; 
 	  
 	  for (int row = 0; row < matrix.length; row++) //can switch columns and rows for loops-> it is no different
 	    {
-	      for (int col = 0; col < matrix[0].length; 
-	           col++)
-	      {
-	        if (col == colNum)
-	        {
-	        	total+= matrix[row][colNum];
-	        }
-	      }
+//	      for (int col = 0; col < matrix[0].length; 
+//	           col++)
+//	      {
+//	        if (col == colNum)
+//	        {
+	        	total+= matrix[row][colNum]; //ALWAYS row then column
+//	        }
+//	      }
 	    }
 	  return total; 
   }

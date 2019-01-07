@@ -83,6 +83,14 @@ public class PictureTester
     swan.explore();
   }
   
+  
+  public static void testMirrorHorizontal()
+  {
+	  Picture bike = new Picture ("redMotorcycle.jpg");
+	  bike.mirrorHorizontal();
+	  bike.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -102,8 +110,10 @@ public class PictureTester
     //testGrayscale();
     //testFixUnderwater();
   //testMirrorVertical();
-	testMirrorVertical2();
-	testMirrorVerticalRtoL();
+//	testMirrorVertical2();
+//	testMirrorVerticalRtoL();
+	
+	testMirrorHorizontal();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
