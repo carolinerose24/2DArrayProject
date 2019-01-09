@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.text.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
+import java.awt.Color;
 
 /**
  * A class that represents a picture.  This class inherits from 
@@ -85,6 +86,27 @@ public class Picture extends SimplePicture
     return output;
     
   }
+  
+  
+  public void chromakey(Picture replacement, Color changeColor)
+  {
+	  Pixel[][] mainPixels= this.getPixels2D();
+	  Pixel[][] replacementPixels = replacement.getPixels2D();
+	  
+	  for (int row = 0; row < mainPixels.length; row++)
+	  {
+		  for (int col = 0; col < mainPixels[0].length; col++)
+		  {
+			  if (mainPixels[row][col].colorDistance(changeColor) < 10)
+			  {
+				  mainPixels[row][col].setColor(replacementPixels[row][col].getColor());
+				  
+			  }
+		  }
+		  
+	  }
+  }
+  
   
   
   public void banana()
