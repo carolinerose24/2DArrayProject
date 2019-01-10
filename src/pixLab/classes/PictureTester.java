@@ -126,6 +126,13 @@ public class PictureTester
 	  seagull.explore();
   }
   
+  public static void testGlitchy()
+  {
+	  Picture pic = new Picture("blueMotorcycle.jpg");
+	  pic.glitchy();
+	  pic.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)

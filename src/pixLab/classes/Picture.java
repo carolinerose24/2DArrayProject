@@ -108,6 +108,83 @@ public class Picture extends SimplePicture
   }
   
   
+  public void glitchy()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = pixels.length;
+	  int width = pixels[0].length;
+	  Pixel copyPixel = null;
+	  Pixel pastePixel = null;
+	  
+	  int random1 = (int)(Math.random() * (height - 20));
+	  int random2 = (int)(Math.random() * (width - 40));
+	  
+	  int mirrorPoint = (int)(Math.random() * width);
+	  int mirrorPoint2 = (int)(Math.random() * width);
+	  
+	  int random3 = (int)(Math.random() * height);
+	  int random4 = (int)(Math.random() * width);
+	  
+	  //TO REFLECT AND MAKE IT MAGENTA
+//	  for(int row = 0; row < height; row++)
+//	  {
+//		  for(int col = 0; col < width; col++)
+//		  {
+//			  copyPixel = pixels[row][col];
+//			  pastePixel = pixels[row][width - 1 - col];
+//			  pastePixel.setColor(copyPixel.getColor());
+//			  pastePixel.setBlue(100);
+//			  pastePixel.setGreen(pastePixel.getRed() / 2);
+//			  
+//		  }
+//	  }
+	  
+	  //TO REFLECT WITH 1/2 OPACITY
+	  for(int row = 0; row < height; row++)
+	  {
+		  for(int col = 0; col < width; col++)
+		  {
+			  copyPixel = pixels[row][col];
+			  pastePixel = pixels[row][width - 1 - col];
+			  pastePixel.setBlue((pastePixel.getBlue() + copyPixel.getBlue()) / 2);
+			  pastePixel.setGreen((pastePixel.getGreen() + copyPixel.getGreen()) / 2);
+			  pastePixel.setRed((pastePixel.getRed() + copyPixel.getRed()) / 2);
+			  
+		  }
+	  }
+	  
+	  //TO COPY PASTE RANDOMLY WITH ZERO BLUE
+//	  for(int row = random1; row < random1 + 20; row++)
+//	  {
+//		  for(int col = random2; col < random2 + 40; col++)
+//		  {
+//			  copyPixel = pixels[row][col];
+//			  copyPixel.setBlue(0);
+//			  pastePixel = pixels[row][mirrorPoint2 - col + mirrorPoint2];
+//			  pastePixel.setColor(copyPixel.getColor());
+//			  
+//		  }
+//		  
+//	  }
+	  
+	  //TO REFLECT A SECTION WITH ZERO GREEN
+//	  for(int row = 36; row < 300; row++)
+//	  {
+//		  for(int col = 56; col < 239; col++)
+//		  {
+//			  copyPixel = pixels[row][col];
+//			  copyPixel.setGreen(0);
+//			  pastePixel = pixels[row][mirrorPoint - col + mirrorPoint];
+//			  pastePixel.setColor(copyPixel.getColor());
+//			  
+//		  }
+//		  
+//	  }
+//	  
+  }
+  
+  
+  
   
   public void banana()
   {
