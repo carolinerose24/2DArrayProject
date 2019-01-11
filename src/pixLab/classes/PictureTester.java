@@ -146,7 +146,7 @@ public class PictureTester
   {
 	  Picture sleeping = new Picture("sleeping.JPG");
 //	  sleeping.explore();
-	  sleeping.shiftUpDown(100);
+	  sleeping.shiftUpDown(10);
 	  sleeping.explore();
 	  
   }
@@ -160,7 +160,7 @@ public class PictureTester
     // to run
 	  
 	  testShiftLeftRight();
-	  testShiftUpDown();
+	 // testShiftUpDown();
 	  
 	  
 //    testZeroBlue();

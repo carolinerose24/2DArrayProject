@@ -107,6 +107,9 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  
+  //MAKE ONE THAT SHIFTS UP and TO THE SIDE
+  
   public void shiftLeftRight(int amount)
   {
 	  Pixel[][] pixels = this.getPixels2D();
@@ -136,6 +139,20 @@ public class Picture extends SimplePicture
 	      {
 	        pixels[row][col].setColor(copied[row][col].getColor());
 	        
+	        
+	        pixels[row][col].setColor(copied[row][col].getColor());
+	        
+	        copyPixel = pixels[row][col];
+	        pixels[row][col].setBlue((pixels[row][col].getBlue() + copied[row][col].getBlue()) / 2);
+	        pixels[row][col].setGreen((pixels[row][col].getGreen() + copied[row][col].getGreen()) / 2);
+	        pixels[row][col].setRed((pixels[row][col].getRed() + copied[row][col].getRed()) / 2);
+	        
+	        //OR
+	        
+	        copyPixel = pixels[row][col];
+	        pixels[row][col].setBlue((pixels[row][col].getBlue() + copyPixel.getBlue()) / 2);
+	        pixels[row][col].setGreen((pixels[row][col].getGreen() + copyPixel.getGreen()) / 2);
+	        pixels[row][col].setRed((pixels[row][col].getRed() + copyPixel.getRed()) / 2);
 	      }
 	    } 
 	  
@@ -185,9 +202,17 @@ public class Picture extends SimplePicture
 	        pixels[row][col].setColor(copied[row][col].getColor());
 	        
 	        copyPixel = pixels[row][col];
+	        pixels[row][col].setBlue((pixels[row][col].getBlue() + copied[row][col].getBlue()) / 2);
+	        pixels[row][col].setGreen((pixels[row][col].getGreen() + copied[row][col].getGreen()) / 2);
+	        pixels[row][col].setRed((pixels[row][col].getRed() + copied[row][col].getRed()) / 2);
+	        
+	        //OR
+	        
+	        copyPixel = pixels[row][col];
 	        pixels[row][col].setBlue((pixels[row][col].getBlue() + copyPixel.getBlue()) / 2);
 	        pixels[row][col].setGreen((pixels[row][col].getGreen() + copyPixel.getGreen()) / 2);
 	        pixels[row][col].setRed((pixels[row][col].getRed() + copyPixel.getRed()) / 2);
+	        
 	      }
 	    } 
 	  
