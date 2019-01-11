@@ -107,6 +107,111 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void shiftLeftRight(int amount)
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Picture temp = new Picture(this);
+	  Pixel[][] copied = temp.getPixels2D();
+	  
+	  int shiftedValue = amount;
+	  int width = pixels[0].length;
+	  int height = pixels.length;
+	  
+	  Pixel copyPixel = null;
+	  Pixel pastePixel = null;
+	  
+	  
+	  for (int row = 0; row < pixels.length; row++)
+	    {
+	      for (int col = 0; col < pixels[0].length ; col++)
+	      {
+	        shiftedValue = (col + amount) % width;
+	        copied[row][col].setColor(pixels[row][shiftedValue].getColor());
+	      }
+	    } 
+	  
+	  for (int row = 0; row < pixels.length; row++)
+	    {
+	      for (int col = 0; col < pixels[0].length ; col++)
+	      {
+	        pixels[row][col].setColor(copied[row][col].getColor());
+	        
+	      }
+	    } 
+	  
+	  //TO REFLECT WITH 1/2 OPACITY
+	  for(int row = 0; row < height; row++)
+	  {
+		  for(int col = 0; col < width; col++)
+		  {
+			  copyPixel = pixels[row][col];
+			  pastePixel = pixels[row][width - 1 - col];
+			  pastePixel.setBlue((pastePixel.getBlue() + copyPixel.getBlue()) / 2);
+			  pastePixel.setGreen((pastePixel.getGreen() + copyPixel.getGreen()) / 2);
+			  pastePixel.setRed((pastePixel.getRed() + copyPixel.getRed()) / 2);
+			  
+		  }
+	  }
+	  	  
+  }
+  
+  public void shiftUpDown(int amount)
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Picture temp = new Picture(this);
+	  Pixel[][] copied = temp.getPixels2D();
+	  
+	  int shiftedValue = amount;
+	  int width = pixels[0].length;
+	  int height = pixels.length;
+	  
+	  Pixel copyPixel = null;
+	  Pixel pastePixel = null;
+	  
+	  
+	  for (int row = 0; row < pixels.length; row++)
+	    {
+	      for (int col = 0; col < pixels[0].length ; col++)
+	      {
+	        shiftedValue = (row + amount) % height;
+	        copied[row][col].setColor(pixels[shiftedValue][col].getColor());
+	      }
+	    } 
+	  
+	  for (int row = 0; row < pixels.length; row++)
+	    {
+	      for (int col = 0; col < pixels[0].length ; col++)
+	      {
+	        pixels[row][col].setColor(copied[row][col].getColor());
+	        
+	        copyPixel = pixels[row][col];
+	        pixels[row][col].setBlue((pixels[row][col].getBlue() + copyPixel.getBlue()) / 2);
+	        pixels[row][col].setGreen((pixels[row][col].getGreen() + copyPixel.getGreen()) / 2);
+	        pixels[row][col].setRed((pixels[row][col].getRed() + copyPixel.getRed()) / 2);
+	      }
+	    } 
+	  
+	  
+	  
+	  
+	  //TO REFLECT WITH 1/2 OPACITY
+	  for(int row = 0; row < height; row++)
+	  {
+		  for(int col = 0; col < width; col++)
+		  {
+			  copyPixel = pixels[row][col];
+			  pastePixel = pixels[row][width - 1 - col];
+			  pastePixel.setBlue((pastePixel.getBlue() + copyPixel.getBlue()) / 2);
+			  pastePixel.setGreen((pastePixel.getGreen() + copyPixel.getGreen()) / 2);
+			  pastePixel.setRed((pastePixel.getRed() + copyPixel.getRed()) / 2);
+			  
+		  }
+	  }
+	  	  
+  }
+  
+  
+  
   
   public void glitchy()
   {

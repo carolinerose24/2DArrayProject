@@ -133,6 +133,24 @@ public class PictureTester
 	  pic.explore();
   }
   
+  public static void testShiftLeftRight()
+  {
+	  Picture sleeping = new Picture("sleeping.JPG");
+//	  sleeping.explore();
+	  sleeping.shiftLeftRight(100);
+	  sleeping.explore();
+	  
+  }
+  
+  public static void testShiftUpDown()
+  {
+	  Picture sleeping = new Picture("sleeping.JPG");
+//	  sleeping.explore();
+	  sleeping.shiftUpDown(100);
+	  sleeping.explore();
+	  
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -141,7 +159,10 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
 	  
- 
+	  testShiftLeftRight();
+	  testShiftUpDown();
+	  
+	  
 //    testZeroBlue();
 //	testZeroRed(); 
 //	testZeroGreen();
@@ -167,7 +188,7 @@ public class PictureTester
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
-    testChromakey();
+ //   testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
