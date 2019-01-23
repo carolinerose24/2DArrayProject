@@ -151,6 +151,14 @@ public class PictureTester
 	  
   }
   
+  public static void testALLtheTHINGS()
+  {
+	  Picture sleeping = new Picture("sleeping.JPG");
+	  sleeping.explore();
+	  sleeping.ALLtheTHINGS(7);
+	  sleeping.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -159,7 +167,9 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
 	  
-	  testShiftLeftRight();
+	  testALLtheTHINGS();
+	  
+//	  testShiftLeftRight();
 	 // testShiftUpDown();
 	  
 	  

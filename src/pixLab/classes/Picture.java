@@ -610,17 +610,185 @@ public class Picture extends SimplePicture
   }
   
   
+  
+  //----------------------------------------------------------------------------------MY GLITCH----------------------------------------------------------------------------------------------------
+  
+  public void ALLtheTHINGS(int edgeDist)
+  {
+	  Pixel leftPixel = null;
+	    Pixel rightPixel = null;
+	    Pixel[][] pixels = this.getPixels2D();
+	    Color rightColor = null;
+	    for (int row = 0; row < pixels.length; row++)
+	    {
+	      for (int col = 0; 
+	           col < pixels[0].length-1; col++)
+	      {
+	        leftPixel = pixels[row][col];
+	        rightPixel = pixels[row][col+1];
+	        rightColor = rightPixel.getColor();
+	        if (leftPixel.colorDistance(rightColor) > 
+	            edgeDist)
+	          leftPixel.setColor(Color.BLACK);
+	        //else
+	          //leftPixel.setColor(Color.WHITE);
+	      }
+	    }
+  
+	//    Pixel[][] pixels = this.getPixels2D();
+		  int height = pixels.length;
+		  int width = pixels[0].length;
+		  Pixel copyPixel = null;
+		  Pixel pastePixel = null;
+		  
+
+		  //TO REFLECT WITH 1/2 OPACITY
+		  for(int row = 0; row < height; row++)
+		  {
+			  for(int col = 0; col < width; col++)
+			  {
+				  copyPixel = pixels[row][col];
+				  pastePixel = pixels[row][width - 1 - col];
+				  pastePixel.setBlue((pastePixel.getBlue() + copyPixel.getBlue()) / 2);
+				  pastePixel.setGreen((pastePixel.getGreen() + copyPixel.getGreen()) / 2);
+				  pastePixel.setRed((pastePixel.getRed() + copyPixel.getRed()) / 2);
+				  
+			  }
+		  }
+
+  
+  
+  
+
+
+		  //Shift up and down
+		  int amount = 800;
+		  Picture temp = new Picture(this);
+		  Pixel[][] copied = temp.getPixels2D();
+		  Pixel[][] copied1 = temp.getPixels2D();
+		  int shiftedValue = amount;
+		  int shiftedValue2 = 400;
+		  
+		  
+		  //just moves it up/down --> same as other method
+//		  for (int row = 0; row < pixels.length; row++)
+//		    {
+//		      for (int col = 0; col < pixels[0].length ; col++)
+//		      {
+//		        shiftedValue2 = (row + amount) % height;
+//		        copied1[row][col].setColor(pixels[shiftedValue2][col].getColor());
+//		      }
+//		    } 
+//		  for (int row = 0; row < pixels.length; row++)
+//		    {
+//		      for (int col = 0; col < pixels[0].length ; col++)
+//		      {
+//		        pixels[row][col].setColor(copied1[row][col].getColor());
+//		        
+//		        
+//		        pixels[row][col].setColor(copied1[row][col].getColor());
+//		        
+//		        copyPixel = pixels[row][col];
+//		        pixels[row][col].setBlue((pixels[row][col].getBlue() + copied1[row][col].getBlue()) / 2);
+//		        pixels[row][col].setGreen((pixels[row][col].getGreen() + copied1[row][col].getGreen()) / 2);
+//		        pixels[row][col].setRed((pixels[row][col].getRed() + copied1[row][col].getRed()) / 2);
+//
+//		      }
+//		    } 
+		  
+		  
+		  
+
+		  for (int row = 0; row < pixels.length; row++)
+		    {
+		      for (int col = 0; col < pixels[0].length ; col++)
+		      {
+		        shiftedValue = (row + amount) % height;
+		        copied[row][col].setColor(pixels[shiftedValue][col].getColor());
+		      }
+		    } 
+		  		//to make it gray
+		  for (int row = 0; row < pixels.length; row++)
+		    {
+		      for (int col = 0; col < pixels[0].length ; col++)
+		      {
+		        pixels[row][col].setColor(copied[row][col].getColor());
+		        
+		        copyPixel = pixels[row][col];
+		        pixels[row][col].setBlue((pixels[row][col].getBlue())/ 2);
+		        pixels[row][col].setGreen((pixels[row][col].getGreen())/ 2);
+		        pixels[row][col].setRed((pixels[row][col].getRed() ) / 2);
+		        
+
+		      }
+		    } 
+		  
+		  
+		  
+		  //Shift right and left
+		  int amount1 = 900;
+		  int shiftedValue1 = amount1;
+		  for (int row = 0; row < pixels.length; row++)
+		    {
+		      for (int col = 0; col < pixels[0].length ; col++)
+		      {
+		        shiftedValue1 = (col + amount) % width;
+		        copied[row][col].setColor(pixels[row][shiftedValue1].getColor());
+		      }
+		    } 
+		  
+		  for (int row = 0; row < pixels.length; row++)
+		    {
+		      for (int col = 0; col < pixels[0].length ; col++)
+		      {
+		        pixels[row][col].setColor(copied[row][col].getColor());
+		        
+		        
+		        pixels[row][col].setColor(copied[row][col].getColor());
+		        
+		        copyPixel = pixels[row][col];
+		        pixels[row][col].setBlue((pixels[row][col].getBlue() + copied[row][col].getBlue()) / 2);
+		        pixels[row][col].setGreen((pixels[row][col].getGreen() + copied[row][col].getGreen()) / 2);
+		        pixels[row][col].setRed((pixels[row][col].getRed() + copied[row][col].getRed()) / 2);
+
+		      }
+		    } 
+		  
+  
+//		  
+//		  //MAKING a collage
+//		    Picture flower1 = new Picture("sleeping.JPG");
+//		    Picture flower2 = new Picture("sleeping.JPG");
+//		    this.copy(flower1,0,0);
+//	//	    this.copy(flower2,100,0);
+//	//	    this.copy(flower1,200,0);
+//		 //   Picture flowerNoBlue = new Picture(flower2);
+//		 //   flowerNoBlue.zeroBlue();
+//		 //   this.copy(flowerNoBlue,300,0);
+//		 //  this.copy(flower1,400,0);
+//		 //   this.copy(flower2,500,0);
+//	//	    this.mirrorVertical();
+//		//    this.write("collage.jpg");
+//		  
+  }
+  
+  
+  
+  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
+	  testALLtheTHINGS();
     
-    
+  }
+  public static void testALLtheTHINGS()
+  {
+	  Picture sleeping = new Picture("sleeping.JPG");
+	  sleeping.explore();
+	  sleeping.ALLtheTHINGS(7);
+	  sleeping.explore();
   }
   
 } // this } is the end of class Picture, put all new methods before this
