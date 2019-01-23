@@ -159,6 +159,26 @@ public class PictureTester
 	  sleeping.explore();
   }
   
+  
+  public static void testStenography()
+  {
+	  Picture banana = new Picture ("swan.jpg");
+	  Picture b = new Picture ("notPass.jpg");
+	  Picture h = new Picture ("SharkRiding1.jpg");
+	  
+//	  banana.explore();
+	  b.explore();
+	  banana.hidePicture(b);
+	  banana.explore();
+	  banana.revealPicture();
+	  banana.explore();
+	  
+//	  h.revealPicture();
+//	  h.explore();
+	  
+	  
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -166,8 +186,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-	  
-	  testALLtheTHINGS();
+	  testStenography();
+//	  testALLtheTHINGS();
 	  
 //	  testShiftLeftRight();
 	 // testShiftUpDown();

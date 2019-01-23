@@ -604,10 +604,62 @@ public class Picture extends SimplePicture
             edgeDist)
           leftPixel.setColor(Color.BLACK);
         else
-          leftPixel.setColor(Color.WHITE);
+          leftPixel.setColor(Color.WHITE); //take out these 2 lines for just a black outline --> the smaller the input, the darker the lines
       }
     }
   }
+  
+  
+  
+  
+  public void hidePicture(Picture hidden)
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel[][] hiddenPixels = hidden.getPixels2D();
+	  
+	  for (int row = 0; row < pixels.length && row < hiddenPixels.length; row ++)
+	    {
+	      for (int col = 0; col < pixels[0].length && col < hiddenPixels[0].length; col++)
+	      {
+	    	  //if there is a message to hide
+	        if (hiddenPixels[row][col].colorDistance(Color.WHITE) > 5)
+	        {
+	      	  if (pixels[row][col].getRed() > 0 && pixels[row][col].getRed() % 2 != 1)
+		        {
+		        	
+		        	pixels[row][col].setRed(pixels[row][col].getRed() - 1);
+		        }
+	        }
+	    
+	        else if (pixels[row][col].getRed() > 0 && pixels[row][col].getRed() % 2 == 1)
+	        {
+	        	pixels[row][col].setRed(pixels[row][col].getRed() - 1);
+	        }
+	      }
+	    }
+	  
+  }
+  
+  public void revealPicture()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (int row = 0; row < pixels.length; row++)
+	    {
+	      for (int col = 0; col < pixels[0].length-1; col++)
+	      {
+	        if (pixels[row][col].getRed() > 0 && pixels[row][col].getRed() % 2 != 1)
+	        {
+	        	pixels[row][col].setColor(Color.cyan);
+	        }
+	        else if (pixels[row][col].getRed() > 0 && pixels[row][col].getRed() % 2 == 1)
+	        {
+	        	pixels[row][col].setColor(Color.gray);
+	        }
+	      }
+	    }
+  }
+  
+  
   
   
   
@@ -754,22 +806,43 @@ public class Picture extends SimplePicture
 		      }
 		    } 
 		  
-  
+		  
 //		  
-//		  //MAKING a collage
-//		    Picture flower1 = new Picture("sleeping.JPG");
-//		    Picture flower2 = new Picture("sleeping.JPG");
-//		    this.copy(flower1,0,0);
-//	//	    this.copy(flower2,100,0);
-//	//	    this.copy(flower1,200,0);
-//		 //   Picture flowerNoBlue = new Picture(flower2);
-//		 //   flowerNoBlue.zeroBlue();
-//		 //   this.copy(flowerNoBlue,300,0);
-//		 //  this.copy(flower1,400,0);
-//		 //   this.copy(flower2,500,0);
-//	//	    this.mirrorVertical();
-//		//    this.write("collage.jpg");
-//		  
+//		  for (int row = 0; row < pixels.length; row++)
+//		    {
+//		      for (int col = 0; col < pixels[0].length ; col++)
+//		      {
+//		        pixels[row][col].setColor(copied[row][col].getColor());
+//		        
+//		        
+//		        pixels[row][col].setColor(copied[row][col].getColor());
+//		        
+//		        copyPixel = pixels[row][col];
+//		        pixels[row][col].setBlue((pixels[row][col].getBlue() + copied[row][col].getBlue()) / 2);
+//		        pixels[row][col].setGreen((pixels[row][col].getGreen() + copied[row][col].getGreen()) / 2);
+//		        pixels[row][col].setRed((pixels[row][col].getRed() + copied[row][col].getRed()) / 2);
+//
+//		        
+//		        
+//		        //MAKING a collage  --> make it the regular picture?
+//			    Picture flower1 = new Picture("sleeping.JPG");
+//			    Picture flower2 = new Picture("sleeping.JPG");
+//	//		  			this.copy(copyPixel,0,0); 			  			//--> make a copy of the pixels, not the picture? if possible
+//			    this.copy(flower2,100,0);								// have to do this with a picture--> not with pixels--> maybe do it at the very end? not really
+//		//	    this.copy(flower1,200,0);
+//			 //   Picture flowerNoBlue = new Picture(flower2);
+//			 //   flowerNoBlue.zeroBlue();
+//			 //   this.copy(flowerNoBlue,300,0);
+//			 //  this.copy(flower1,400,0);
+//			 //   this.copy(flower2,500,0);
+//		//	    this.mirrorVertical();
+//			//    this.write("collage.jpg");
+//			  
+//			    
+//		      }
+//		    } 
+		  
+		 
   }
   
   
