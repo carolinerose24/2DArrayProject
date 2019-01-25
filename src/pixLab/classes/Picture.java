@@ -129,6 +129,11 @@ public class Picture extends SimplePicture
 	      for (int col = 0; col < pixels[0].length ; col++)
 	      {
 	        shiftedValue = (col + amount) % width;
+	        
+	        if (amount < 0)
+	        {
+	        	shiftedValue = ((col + amount) % width + width ) % width; //to do negative numbers
+	        }
 	        copied[row][col].setColor(pixels[row][shiftedValue].getColor());
 	      }
 	    } 
@@ -749,13 +754,17 @@ public class Picture extends SimplePicture
 //		    } 
 		  
 		  
-		  
+		  //Shifting?
 
 		  for (int row = 0; row < pixels.length; row++)
 		    {
 		      for (int col = 0; col < pixels[0].length ; col++)
 		      {
 		        shiftedValue = (row + amount) % height;
+		        if (amount < 0)
+		        {
+		        	shiftedValue = ((col + amount) % width + width ) % width; //to do negative numbers
+		        }
 		        copied[row][col].setColor(pixels[shiftedValue][col].getColor());
 		      }
 		    } 
@@ -767,11 +776,11 @@ public class Picture extends SimplePicture
 		        pixels[row][col].setColor(copied[row][col].getColor());
 		        
 		        copyPixel = pixels[row][col];
-		        pixels[row][col].setBlue((pixels[row][col].getBlue())/ 2);
+		        pixels[row][col].setBlue((pixels[row][col].getBlue()));/// 2 );
 		        pixels[row][col].setGreen((pixels[row][col].getGreen())/ 2);
 		        pixels[row][col].setRed((pixels[row][col].getRed() ) / 2);
 		        
-
+		        
 		      }
 		    } 
 		  
@@ -785,6 +794,10 @@ public class Picture extends SimplePicture
 		      for (int col = 0; col < pixels[0].length ; col++)
 		      {
 		        shiftedValue1 = (col + amount) % width;
+		        if (amount < 0)
+		        {
+		        	shiftedValue = ((col + amount) % width + width ) % width; //to do negative numbers
+		        }
 		        copied[row][col].setColor(pixels[row][shiftedValue1].getColor());
 		      }
 		    } 
@@ -800,7 +813,7 @@ public class Picture extends SimplePicture
 		        
 		        copyPixel = pixels[row][col];
 		        pixels[row][col].setBlue((pixels[row][col].getBlue() + copied[row][col].getBlue()) / 2);
-		        pixels[row][col].setGreen((pixels[row][col].getGreen() + copied[row][col].getGreen()) / 2);
+		        pixels[row][col].setGreen((pixels[row][col].getGreen() + copied[row][col].getGreen()));// / 2);
 		        pixels[row][col].setRed((pixels[row][col].getRed() + copied[row][col].getRed()) / 2);
 
 		      }
@@ -859,9 +872,19 @@ public class Picture extends SimplePicture
   public static void testALLtheTHINGS()
   {
 	  Picture sleeping = new Picture("sleeping.JPG");
+	  Picture b = new Picture ("SantaJawsImage.jpg");
+	  Picture a = new Picture ("SharkRiding1.jpg");
 	  sleeping.explore();
-	  sleeping.ALLtheTHINGS(7);
-	  sleeping.explore();
+	//  sleeping.ALLtheTHINGS(7);
+	//  sleeping.explore();
+	  
+//	  b.explore();
+//	  b.ALLtheTHINGS(10);
+//	  b.explore();
+//	  
+//	  a.explore();
+//	  a.ALLtheTHINGS(10);
+//	  a.explore();
   }
   
 } // this } is the end of class Picture, put all new methods before this
