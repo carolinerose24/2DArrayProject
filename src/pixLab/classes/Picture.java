@@ -810,6 +810,11 @@ public class Picture extends SimplePicture
 		        
 		        
 		        pixels[row][col].setColor(copied[row][col].getColor());
+		  //int random = (int) Math.random();
+		        //MAke it RANDOMLY choose which one to divide by 2 or a combo thereof --> put it here AND Below
+		        //So everytime it runs it goes to a different color?
+		        
+		        
 		        
 		        copyPixel = pixels[row][col];
 		        pixels[row][col].setBlue((pixels[row][col].getBlue() + copied[row][col].getBlue()) / 2);
