@@ -704,7 +704,7 @@ public class Picture extends SimplePicture
 		  {
 			  for(int col = 0; col < width; col++)
 			  {
-				  copyPixel = pixels[row][col];//[height - 1 - row][col];
+				  copyPixel = pixels[height - 1 - row][col];
 				  pastePixel = pixels[row][width - 1 - col];
 				  pastePixel.setBlue((pastePixel.getBlue() + copyPixel.getBlue()) / 2);
 				  pastePixel.setGreen((pastePixel.getGreen() + copyPixel.getGreen()) / 2);
@@ -727,32 +727,7 @@ public class Picture extends SimplePicture
 		  int shiftedValue2 = 400;
 		  
 		  
-		  //just moves it up/down --> same as other method
-//		  for (int row = 0; row < pixels.length; row++)
-//		    {
-//		      for (int col = 0; col < pixels[0].length ; col++)
-//		      {
-//		        shiftedValue2 = (row + amount) % height;
-//		        copied1[row][col].setColor(pixels[shiftedValue2][col].getColor());
-//		      }
-//		    } 
-//		  for (int row = 0; row < pixels.length; row++)
-//		    {
-//		      for (int col = 0; col < pixels[0].length ; col++)
-//		      {
-//		        pixels[row][col].setColor(copied1[row][col].getColor());
-//		        
-//		        
-//		        pixels[row][col].setColor(copied1[row][col].getColor());
-//		        
-//		        copyPixel = pixels[row][col];
-//		        pixels[row][col].setBlue((pixels[row][col].getBlue() + copied1[row][col].getBlue()) / 2);
-//		        pixels[row][col].setGreen((pixels[row][col].getGreen() + copied1[row][col].getGreen()) / 2);
-//		        pixels[row][col].setRed((pixels[row][col].getRed() + copied1[row][col].getRed()) / 2);
-//
-//		      }
-//		    } 
-		  
+
 		  
 		  //Shifting?
 
@@ -860,6 +835,34 @@ public class Picture extends SimplePicture
 //		      }
 //		    } 
 		  
+		  
+		  
+		  //just moves it up/down --> same as other method
+//		  for (int row = 0; row < pixels.length; row++)
+//		    {
+//		      for (int col = 0; col < pixels[0].length ; col++)
+//		      {
+//		        shiftedValue2 = (row + amount) % height;
+//		        copied1[row][col].setColor(pixels[shiftedValue2][col].getColor());
+//		      }
+//		    } 
+//		  for (int row = 0; row < pixels.length; row++)
+//		    {
+//		      for (int col = 0; col < pixels[0].length ; col++)
+//		      {
+//		        pixels[row][col].setColor(copied1[row][col].getColor());
+//		        
+//		        
+//		        pixels[row][col].setColor(copied1[row][col].getColor());
+//		        
+//		        copyPixel = pixels[row][col];
+//		        pixels[row][col].setBlue((pixels[row][col].getBlue() + copied1[row][col].getBlue()) / 2);
+//		        pixels[row][col].setGreen((pixels[row][col].getGreen() + copied1[row][col].getGreen()) / 2);
+//		        pixels[row][col].setRed((pixels[row][col].getRed() + copied1[row][col].getRed()) / 2);
+//
+//		      }
+//		    } 
+		  
 		 
   }
   
@@ -879,8 +882,8 @@ public class Picture extends SimplePicture
 	  Picture sleeping = new Picture("sleeping.JPG");
 	  Picture b = new Picture ("SantaJawsImage.jpg");
 	  Picture a = new Picture ("SharkRiding1.jpg");
-	 // sleeping.explore();
-	  sleeping.ALLtheTHINGS(15);
+	  sleeping.explore();
+	  sleeping.ALLtheTHINGS(7);
 	  sleeping.explore();
 	  
 //	  b.explore();
