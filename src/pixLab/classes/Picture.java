@@ -680,7 +680,7 @@ public class Picture extends SimplePicture
 	    {
 	      for (int col = 0; 
 	           col < pixels[0].length-1; col++)
-	      {
+	      { //edge detector
 	        leftPixel = pixels[row][col];
 	        rightPixel = pixels[row][col+1];
 	        rightColor = rightPixel.getColor();
@@ -704,7 +704,7 @@ public class Picture extends SimplePicture
 		  {
 			  for(int col = 0; col < width; col++)
 			  {
-				  copyPixel = pixels[row][col];
+				  copyPixel = pixels[row][col];//[height - 1 - row][col];
 				  pastePixel = pixels[row][width - 1 - col];
 				  pastePixel.setBlue((pastePixel.getBlue() + copyPixel.getBlue()) / 2);
 				  pastePixel.setGreen((pastePixel.getGreen() + copyPixel.getGreen()) / 2);
@@ -787,7 +787,7 @@ public class Picture extends SimplePicture
 		  
 		  
 		  //Shift right and left
-		  int amount1 = 900;
+		  int amount1 = 500;
 		  int shiftedValue1 = amount1;
 		  for (int row = 0; row < pixels.length; row++)
 		    {
@@ -879,9 +879,9 @@ public class Picture extends SimplePicture
 	  Picture sleeping = new Picture("sleeping.JPG");
 	  Picture b = new Picture ("SantaJawsImage.jpg");
 	  Picture a = new Picture ("SharkRiding1.jpg");
+	 // sleeping.explore();
+	  sleeping.ALLtheTHINGS(15);
 	  sleeping.explore();
-	//  sleeping.ALLtheTHINGS(7);
-	//  sleeping.explore();
 	  
 //	  b.explore();
 //	  b.ALLtheTHINGS(10);
